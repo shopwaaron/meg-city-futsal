@@ -1303,9 +1303,12 @@ select option { background: #1a1a1a; color: #fff; }
 
   <!-- ============================================================
        INSTAGRAM FEED
-       To connect a live feed later, replace the .ig-tile placeholders
-       below with an embed from a free service (Behold.so, LightWidget,
-       or Elfsight) pointed at @megcityfutsal — or swap in real images.
+       Currently a manual snapshot of the 6 most recent posts from
+       @megcityfutsal (images stored in /ig). This is NOT a live feed —
+       photos need to be swapped in by hand to stay current.
+       To make this auto-update, connect a free embed service (Behold.so,
+       LightWidget, or SnapWidget) to the Instagram account and replace
+       the .ig-tile <img> elements below with that service's embed code.
   ============================================================ -->
   <style>
     .ig-section { padding: 80px 0; border-top: 1px solid var(--bdr); }
@@ -1315,9 +1318,11 @@ select option { background: #1a1a1a; color: #fff; }
       aspect-ratio: 1 / 1; background: var(--bg3); border: 1px solid var(--bdr);
       border-radius: 10px; display: flex; align-items: center; justify-content: center;
       color: var(--coral); text-decoration: none; transition: border-color .2s, transform .2s;
+      overflow: hidden; position: relative;
     }
     .ig-tile:hover { border-color: var(--coral); transform: translateY(-2px); }
     .ig-tile svg { width: 26px; height: 26px; opacity: 0.85; }
+    .ig-tile img { width: 100%; height: 100%; object-fit: cover; display: block; }
     @media (max-width: 900px) { .ig-grid { grid-template-columns: repeat(3, 1fr); } }
     @media (max-width: 480px) { .ig-grid { grid-template-columns: repeat(2, 1fr); } }
   </style>
@@ -1332,12 +1337,12 @@ select option { background: #1a1a1a; color: #fff; }
         <a href="https://www.instagram.com/megcityfutsal/" target="_blank" rel="noopener" class="btn btn-primary">Follow on Instagram →</a>
       </div>
       <div class="ig-grid">
-        <a href="https://www.instagram.com/megcityfutsal/" target="_blank" rel="noopener" class="ig-tile" aria-label="View on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
-        <a href="https://www.instagram.com/megcityfutsal/" target="_blank" rel="noopener" class="ig-tile" aria-label="View on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
-        <a href="https://www.instagram.com/megcityfutsal/" target="_blank" rel="noopener" class="ig-tile" aria-label="View on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
-        <a href="https://www.instagram.com/megcityfutsal/" target="_blank" rel="noopener" class="ig-tile" aria-label="View on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
-        <a href="https://www.instagram.com/megcityfutsal/" target="_blank" rel="noopener" class="ig-tile" aria-label="View on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
-        <a href="https://www.instagram.com/megcityfutsal/" target="_blank" rel="noopener" class="ig-tile" aria-label="View on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://www.instagram.com/megcityfutsal/p/DZ_ZJ9GNS0r/" target="_blank" rel="noopener" class="ig-tile" aria-label="View post on Instagram"><img src="ig/post-1.jpg" alt="Meg City Futsal Instagram post" loading="lazy"></a>
+        <a href="https://www.instagram.com/megcityfutsal/p/DZ5mVs6AcHB/" target="_blank" rel="noopener" class="ig-tile" aria-label="View post on Instagram"><img src="ig/post-2.jpg" alt="Meg City Futsal Instagram post" loading="lazy"></a>
+        <a href="https://www.instagram.com/megcityfutsal/p/DYz-BxitCAa/" target="_blank" rel="noopener" class="ig-tile" aria-label="View post on Instagram"><img src="ig/post-3.jpg" alt="Meg City Futsal Instagram post" loading="lazy"></a>
+        <a href="https://www.instagram.com/megcityfutsal/p/DX5F7vQAd1E/" target="_blank" rel="noopener" class="ig-tile" aria-label="View post on Instagram"><img src="ig/post-4.jpg" alt="Meg City Futsal Instagram post" loading="lazy"></a>
+        <a href="https://www.instagram.com/megcityfutsal/p/DXkr-chAYNM/" target="_blank" rel="noopener" class="ig-tile" aria-label="View post on Instagram"><img src="ig/post-5.jpg" alt="Meg City Futsal Instagram post" loading="lazy"></a>
+        <a href="https://www.instagram.com/megcityfutsal/p/DXkSL5qAQo5/" target="_blank" rel="noopener" class="ig-tile" aria-label="View post on Instagram"><img src="ig/post-6.jpg" alt="Meg City Futsal Instagram post" loading="lazy"></a>
       </div>
     </div>
   </div>
