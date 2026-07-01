@@ -1300,6 +1300,47 @@ select option { background: #1a1a1a; color: #fff; }
     </div>
   </div>
 
+  <!-- ============================================================
+       INSTAGRAM FEED
+       To connect a live feed later, replace the .ig-tile placeholders
+       below with an embed from a free service (Behold.so, LightWidget,
+       or Elfsight) pointed at @megcityfutsal — or swap in real images.
+  ============================================================ -->
+  <style>
+    .ig-section { padding: 80px 0; border-top: 1px solid var(--bdr); }
+    .ig-head { display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .ig-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin-top: 32px; }
+    .ig-tile {
+      aspect-ratio: 1 / 1; background: var(--bg3); border: 1px solid var(--bdr);
+      border-radius: 10px; display: flex; align-items: center; justify-content: center;
+      color: var(--coral); text-decoration: none; transition: border-color .2s, transform .2s;
+    }
+    .ig-tile:hover { border-color: var(--coral); transform: translateY(-2px); }
+    .ig-tile svg { width: 26px; height: 26px; opacity: 0.85; }
+    @media (max-width: 900px) { .ig-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 480px) { .ig-grid { grid-template-columns: repeat(2, 1fr); } }
+  </style>
+  <div class="ig-section">
+    <div class="container">
+      <div class="ig-head">
+        <div>
+          <span class="coral-label">On the court</span>
+          <h2 class="heading-lg mt-12">Follow <span class="coral">@megcityfutsal</span></h2>
+          <p class="lead mt-16" style="max-width:560px;">See training clips, game-day highlights, and behind-the-scenes moments from our sessions.</p>
+        </div>
+        <a href="https://www.instagram.com/megcityfutsal/" target="_blank" rel="noopener" class="btn btn-primary">Follow on Instagram →</a>
+      </div>
+      <div class="ig-grid">
+        <a href="https://www.instagram.com/megcityfutsal/" target="_blank" rel="noopener" class="ig-tile" aria-label="View on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://www.instagram.com/megcityfutsal/" target="_blank" rel="noopener" class="ig-tile" aria-label="View on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://www.instagram.com/megcityfutsal/" target="_blank" rel="noopener" class="ig-tile" aria-label="View on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://www.instagram.com/megcityfutsal/" target="_blank" rel="noopener" class="ig-tile" aria-label="View on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://www.instagram.com/megcityfutsal/" target="_blank" rel="noopener" class="ig-tile" aria-label="View on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://www.instagram.com/megcityfutsal/" target="_blank" rel="noopener" class="ig-tile" aria-label="View on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+      </div>
+    </div>
+  </div>
+
   <div class="cta-block">
     <div class="container">
       <h2 class="heading-lg">Ready to get on the <span class="coral">court</span>?</h2>
@@ -1505,6 +1546,7 @@ select option { background: #1a1a1a; color: #fff; }
       <span class="coral-label">Training schedule</span>
       <h2 class="heading-lg mt-12">Weekly sessions<br>by group.</h2>
       <p class="lead mt-16" style="max-width:600px;">Sessions run in 1-hour blocks on Fridays and Sundays. Boys train in Rancho Cucamonga, girls train in Etiwanda.</p>
+      <p class="body mt-12" style="max-width:600px; font-size:14px; color:var(--txt-mute);">Sessions are held at indoor and school campuses across each city. The exact location is shared after registration and may vary by season.</p>
       <div class="sched-component mt-32">
         <div class="sched-tabs-row">
           <button class="sched-pill active" onclick="switchSched('jan','fri',this)">Fridays</button>
@@ -1667,6 +1709,7 @@ select option { background: #1a1a1a; color: #fff; }
       <span class="coral-label">Training schedule</span>
       <h2 class="heading-lg mt-12">Weekly sessions<br>by group.</h2>
       <p class="lead mt-16" style="max-width:600px;">Sessions run in 1-hour blocks on Fridays and Sundays. Boys train in Rancho Cucamonga, girls train in Etiwanda.</p>
+      <p class="body mt-12" style="max-width:600px; font-size:14px; color:var(--txt-mute);">Sessions are held at indoor and school campuses across each city. The exact location is shared after registration and may vary by season.</p>
       <div class="sched-component mt-32">
         <div class="sched-tabs-row">
           <button class="sched-pill active" onclick="switchSched('aug','fri',this)">Fridays</button>
