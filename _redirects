@@ -1,0 +1,11 @@
+# Netlify redirects
+# Upload this file to the root of your Netlify site alongside index.html
+
+/home-.html        /                                                           301
+/programs.html     /                                                           301
+/futsalers.html    /                                                           301
+/meg-city-select.html  /                                                       301
+/register-.html    https://megcityfutsal.sportngin.com/register/form/294981733 301
+/about.html        /                                                           301
+/staff.html        /                                                           301
+/contact.html      /                                                           301
