@@ -952,9 +952,22 @@ select option { background: #1a1a1a; color: #fff; }
    RESPONSIVE
 ============================================================ */
 @media (max-width: 900px) {
+  html { background: #0a0a0a; }
   body {
-    background: linear-gradient(rgba(10,10,10,0.88), rgba(10,10,10,0.88)), url('background-mobile.png') center 64px / cover scroll no-repeat;
-    background-color: #0a0a0a;
+    background: none;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    top: 64px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 64px);
+    z-index: -1;
+    background-image: linear-gradient(rgba(10,10,10,0.85), rgba(10,10,10,0.85)), url('background-mobile.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
   .site-nav {
     background: rgba(10,10,10,0.92);
