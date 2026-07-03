@@ -1,5 +1,15 @@
 {
   "rewrites": [
     { "source": "/", "destination": "/megcityfutsal.html" }
+  ],
+  "redirects": [
+    { "source": "/home-.html", "destination": "/", "permanent": true },
+    { "source": "/programs.html", "destination": "/", "permanent": true },
+    { "source": "/futsalers.html", "destination": "/", "permanent": true },
+    { "source": "/meg-city-select.html", "destination": "/", "permanent": true },
+    { "source": "/about.html", "destination": "/", "permanent": true },
+    { "source": "/staff.html", "destination": "/", "permanent": true },
+    { "source": "/contact.html", "destination": "/", "permanent": true },
+    { "source": "/register-.html", "destination": "https://megcityfutsal.sportngin.com/register/form/294981733", "permanent": true }
   ]
 }

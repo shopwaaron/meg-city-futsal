@@ -20,7 +20,7 @@
 
 <!-- Favicon -->
 <link rel="icon" type="image/png" href="favicon.png">
-<link rel="apple-touch-icon" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,14 +32,27 @@
    RESET & TOKENS
 ============================================================ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
+html { scroll-behavior: smooth; font-size: 16px; background: #0a0a0a; }
 body {
   font-family: 'Inter', sans-serif;
-  background: linear-gradient(rgba(10,10,10,0.82), rgba(10,10,10,0.82)), url('background.png') center center / cover fixed no-repeat;
-  background-color: #0a0a0a;
   color: #ffffff;
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
+}
+/* Fixed-position layer instead of background-attachment:fixed,
+   which is broken (zoomed/unreadable) on iOS Safari at any width. */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  background-image: linear-gradient(rgba(10,10,10,0.82), rgba(10,10,10,0.82)), url('background.jpg');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
@@ -953,25 +966,10 @@ select option { background: #1a1a1a; color: #fff; }
    RESPONSIVE
 ============================================================ */
 @media (max-width: 900px) {
-  html { background: #0a0a0a; }
-  body {
-    background: none;
-  }
   body::before {
-    content: '';
-    position: fixed;
     top: 64px;
-    left: 0;
-    width: 100%;
     height: calc(100vh - 64px);
-    z-index: -1;
-    background-image: linear-gradient(rgba(10,10,10,0.85), rgba(10,10,10,0.85)), url('background-mobile.png');
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
-  .site-nav {
-    background: rgba(10,10,10,0.92);
+    background-image: linear-gradient(rgba(10,10,10,0.85), rgba(10,10,10,0.85)), url('background-mobile.jpg');
   }
   .container { padding: 0 20px; }
   .nav-links { display: none; }
@@ -1126,6 +1124,23 @@ select option { background: #1a1a1a; color: #fff; }
   .sched-block { font-size: 12px; padding: 4px 9px; }
   .sched-hour { font-size: 15px; }
 }
+
+/* ============================================================
+   INSTAGRAM FEED (home page)
+============================================================ */
+.ig-section { padding: 80px 0; border-top: 1px solid var(--bdr); }
+.ig-head { display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+.ig-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin-top: 32px; }
+.ig-tile {
+  aspect-ratio: 1 / 1; background: var(--bg3); border: 1px solid var(--bdr);
+  border-radius: 10px; display: flex; align-items: center; justify-content: center;
+  color: var(--coral); text-decoration: none; transition: border-color .2s, transform .2s;
+  overflow: hidden; position: relative;
+}
+.ig-tile:hover { border-color: var(--coral); transform: translateY(-2px); }
+.ig-tile img { width: 100%; height: 100%; object-fit: cover; display: block; }
+@media (max-width: 900px) { .ig-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 480px) { .ig-grid { grid-template-columns: repeat(2, 1fr); } }
 </style>
 </head>
 <body>
@@ -1136,7 +1151,7 @@ select option { background: #1a1a1a; color: #fff; }
 <nav class="site-nav" id="siteNav">
   <div class="container">
     <div class="nav-inner">
-      <div class="nav-logo" onclick="showPage('home')" role="button" aria-label="Meg City Futsal — go to home">
+      <div class="nav-logo" onclick="showPage('home')" role="button" tabindex="0" aria-label="Meg City Futsal — go to home" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showPage('home');}">
         <img src="logo-lockup-white.png" alt="Meg City Futsal" style="height:46px; width:auto;">
       </div>
       <div class="nav-links">
@@ -1149,7 +1164,7 @@ select option { background: #1a1a1a; color: #fff; }
         <button class="nav-link" onclick="showPage('staff')" id="nav-staff">Staff</button>
         <button class="nav-link" onclick="showPage('contact')" id="nav-contact">Contact</button>
       </div>
-      <button class="nav-register" onclick="window.open('https://megcityfutsal.sportngin.com/register/form/294981733','_blank')">Register</button>
+      <button class="nav-register" onclick="window.open('https://megcityfutsal.sportngin.com/register/form/294981733','_blank','noopener')">Register</button>
       <button class="nav-hamburger" id="hamburger" onclick="toggleMobile()" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
@@ -1164,7 +1179,7 @@ select option { background: #1a1a1a; color: #fff; }
     <button class="mobile-link" onclick="showPage('about');toggleMobile()">About</button>
     <button class="mobile-link" onclick="showPage('staff');toggleMobile()">Staff</button>
     <button class="mobile-link" onclick="showPage('contact');toggleMobile()">Contact</button>
-    <button class="mobile-register" onclick="window.open('https://megcityfutsal.sportngin.com/register/form/294981733','_blank')">Register →</button>
+    <button class="mobile-register" onclick="window.open('https://megcityfutsal.sportngin.com/register/form/294981733','_blank','noopener')">Register →</button>
   </div>
 </nav>
 
@@ -1184,7 +1199,7 @@ select option { background: #1a1a1a; color: #fff; }
           <h1 class="display">Train sharper.<br>Think <span class="coral">faster</span>.<br>Play more.</h1>
           <p class="lead mt-24">Year-round youth futsal in Rancho Cucamonga and the Inland Empire. Build technique, confidence, and game intelligence in the fastest version of the beautiful game. Ages 6–12.</p>
           <div class="btn-group mt-32">
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAlVcim4un0bBk2TjTsjNrc9P0H33xDjdXCRPudQ8qkC6YwA/viewform?usp=header" target="_blank" class="btn btn-primary">Apply to Play →</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAlVcim4un0bBk2TjTsjNrc9P0H33xDjdXCRPudQ8qkC6YwA/viewform?usp=header" target="_blank" rel="noopener" class="btn btn-primary">Apply to Play →</a>
             <button class="btn btn-outline" onclick="showPage('new-players')">New to Futsal?</button>
           </div>
         </div>
@@ -1311,22 +1326,6 @@ select option { background: #1a1a1a; color: #fff; }
        LightWidget, or SnapWidget) to the Instagram account and replace
        the .ig-tile <img> elements below with that service's embed code.
   ============================================================ -->
-  <style>
-    .ig-section { padding: 80px 0; border-top: 1px solid var(--bdr); }
-    .ig-head { display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
-    .ig-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin-top: 32px; }
-    .ig-tile {
-      aspect-ratio: 1 / 1; background: var(--bg3); border: 1px solid var(--bdr);
-      border-radius: 10px; display: flex; align-items: center; justify-content: center;
-      color: var(--coral); text-decoration: none; transition: border-color .2s, transform .2s;
-      overflow: hidden; position: relative;
-    }
-    .ig-tile:hover { border-color: var(--coral); transform: translateY(-2px); }
-    .ig-tile svg { width: 26px; height: 26px; opacity: 0.85; }
-    .ig-tile img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    @media (max-width: 900px) { .ig-grid { grid-template-columns: repeat(3, 1fr); } }
-    @media (max-width: 480px) { .ig-grid { grid-template-columns: repeat(2, 1fr); } }
-  </style>
   <div class="ig-section">
     <div class="container">
       <div class="ig-head">
@@ -1353,7 +1352,7 @@ select option { background: #1a1a1a; color: #fff; }
       <h2 class="heading-lg">Ready to get on the <span class="coral">court</span>?</h2>
       <p>New to futsal? Start with our short guide for families. Already in? Apply to play and complete registration in two quick steps.</p>
       <div class="btn-group" style="justify-content:center;">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAlVcim4un0bBk2TjTsjNrc9P0H33xDjdXCRPudQ8qkC6YwA/viewform?usp=header" target="_blank" class="btn btn-primary">Apply to Play →</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAlVcim4un0bBk2TjTsjNrc9P0H33xDjdXCRPudQ8qkC6YwA/viewform?usp=header" target="_blank" rel="noopener" class="btn btn-primary">Apply to Play →</a>
         <button class="btn btn-outline" onclick="showPage('new-players')">I'm New — Start Here</button>
       </div>
     </div>
@@ -1372,8 +1371,8 @@ select option { background: #1a1a1a; color: #fff; }
       <h1 class="display">New to futsal?<br><span class="coral">Start here.</span></h1>
       <p class="lead mt-24" style="max-width:700px;">Whether your child has played soccer for years or is brand new to the game, futsal is one of the best ways for them to grow as a player — and have fun doing it. Here's everything you need to know before joining Meg City.</p>
       <div class="btn-group mt-32">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAlVcim4un0bBk2TjTsjNrc9P0H33xDjdXCRPudQ8qkC6YwA/viewform?usp=header" target="_blank" class="btn btn-primary">Apply to Play →</a>
-        <button class="btn btn-outline" onclick="window.open('https://megcityfutsal.sportngin.com/register/form/294981733','_blank')">Register</button>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAlVcim4un0bBk2TjTsjNrc9P0H33xDjdXCRPudQ8qkC6YwA/viewform?usp=header" target="_blank" rel="noopener" class="btn btn-primary">Apply to Play →</a>
+        <button class="btn btn-outline" onclick="window.open('https://megcityfutsal.sportngin.com/register/form/294981733','_blank','noopener')">Register</button>
       </div>
     </div>
   </div>
@@ -1483,8 +1482,8 @@ select option { background: #1a1a1a; color: #fff; }
       <h2 class="heading-lg">Getting started is <span class="coral">two steps</span>.</h2>
       <p>Register, then contact us to schedule your child's first session. A coach will be present to evaluate and place your player in the right group.</p>
       <div class="btn-group" style="justify-content:center;">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAlVcim4un0bBk2TjTsjNrc9P0H33xDjdXCRPudQ8qkC6YwA/viewform?usp=header" target="_blank" class="btn btn-primary">Step 1 — Apply to Play →</a>
-        <button class="btn btn-outline" onclick="window.open('https://megcityfutsal.sportngin.com/register/form/294981733','_blank')">Step 2 — Register</button>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAlVcim4un0bBk2TjTsjNrc9P0H33xDjdXCRPudQ8qkC6YwA/viewform?usp=header" target="_blank" rel="noopener" class="btn btn-primary">Step 1 — Apply to Play →</a>
+        <button class="btn btn-outline" onclick="window.open('https://megcityfutsal.sportngin.com/register/form/294981733','_blank','noopener')">Step 2 — Register</button>
       </div>
     </div>
   </div>
@@ -1495,6 +1494,8 @@ select option { background: #1a1a1a; color: #fff; }
      JAN–MAY SEASON PAGE
 ============================================================ -->
 <div class="page" id="page-jan-may">
+<!-- NOTE: the schedule grid, pricing card, and cost note on this page are
+     duplicated on the Aug–Nov page. Edit both when changing either. -->
 
   <div class="section">
     <div class="container">
@@ -1505,8 +1506,8 @@ select option { background: #1a1a1a; color: #fff; }
       <h1 class="display">The <span class="coral">Jan–May</span><br>Season.</h1>
       <p class="lead mt-24" style="max-width:660px;">The heart of the spring competitive calendar. Weekly training, small-sided games, and opportunities to compete in local and regional events. Players ages 6–12, boys and girls.</p>
       <div class="btn-group mt-32">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAlVcim4un0bBk2TjTsjNrc9P0H33xDjdXCRPudQ8qkC6YwA/viewform?usp=header" target="_blank" class="btn btn-primary">Apply to Play →</a>
-        <button class="btn btn-outline" onclick="window.open('https://megcityfutsal.sportngin.com/register/form/294981733','_blank')">Register</button>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAlVcim4un0bBk2TjTsjNrc9P0H33xDjdXCRPudQ8qkC6YwA/viewform?usp=header" target="_blank" rel="noopener" class="btn btn-primary">Apply to Play →</a>
+        <button class="btn btn-outline" onclick="window.open('https://megcityfutsal.sportngin.com/register/form/294981733','_blank','noopener')">Register</button>
       </div>
       <div class="meta-strip">
         <div>
@@ -1646,7 +1647,7 @@ select option { background: #1a1a1a; color: #fff; }
       <h2 class="heading-lg">Ready for the <span class="coral">spring season</span>?</h2>
       <p>Apply now and complete registration. New to the game? Check our New Players page first.</p>
       <div class="btn-group" style="justify-content:center;">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAlVcim4un0bBk2TjTsjNrc9P0H33xDjdXCRPudQ8qkC6YwA/viewform?usp=header" target="_blank" class="btn btn-primary">Apply to Play →</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAlVcim4un0bBk2TjTsjNrc9P0H33xDjdXCRPudQ8qkC6YwA/viewform?usp=header" target="_blank" rel="noopener" class="btn btn-primary">Apply to Play →</a>
         <button class="btn btn-outline" onclick="showPage('new-players')">New Players</button>
       </div>
     </div>
@@ -1658,6 +1659,8 @@ select option { background: #1a1a1a; color: #fff; }
      AUG–NOV SEASON PAGE
 ============================================================ -->
 <div class="page" id="page-aug-nov">
+<!-- NOTE: the schedule grid, pricing card, and cost note on this page are
+     duplicated on the Jan–May page. Edit both when changing either. -->
 
   <div class="section">
     <div class="container">
@@ -1668,8 +1671,8 @@ select option { background: #1a1a1a; color: #fff; }
       <h1 class="display">The <span class="coral">Aug–Nov</span><br>Season.</h1>
       <p class="lead mt-24" style="max-width:660px;">The fall arc of our year-round program — when players sharpen their game heading into winter regional tournaments. Weekly training, small-sided games, and competitive opportunities for those ready.</p>
       <div class="btn-group mt-32">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAlVcim4un0bBk2TjTsjNrc9P0H33xDjdXCRPudQ8qkC6YwA/viewform?usp=header" target="_blank" class="btn btn-primary">Apply to Play →</a>
-        <button class="btn btn-outline" onclick="window.open('https://megcityfutsal.sportngin.com/register/form/294981733','_blank')">Register</button>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAlVcim4un0bBk2TjTsjNrc9P0H33xDjdXCRPudQ8qkC6YwA/viewform?usp=header" target="_blank" rel="noopener" class="btn btn-primary">Apply to Play →</a>
+        <button class="btn btn-outline" onclick="window.open('https://megcityfutsal.sportngin.com/register/form/294981733','_blank','noopener')">Register</button>
       </div>
       <div class="meta-strip">
         <div>
@@ -1814,7 +1817,7 @@ select option { background: #1a1a1a; color: #fff; }
       <h2 class="heading-lg">Ready for the <span class="coral">fall season</span>?</h2>
       <p>Apply now and complete registration. New to the game? Check our New Players page first.</p>
       <div class="btn-group" style="justify-content:center;">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAlVcim4un0bBk2TjTsjNrc9P0H33xDjdXCRPudQ8qkC6YwA/viewform?usp=header" target="_blank" class="btn btn-primary">Apply to Play →</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAlVcim4un0bBk2TjTsjNrc9P0H33xDjdXCRPudQ8qkC6YwA/viewform?usp=header" target="_blank" rel="noopener" class="btn btn-primary">Apply to Play →</a>
         <button class="btn btn-outline" onclick="showPage('new-players')">New Players</button>
       </div>
     </div>
@@ -1952,8 +1955,8 @@ select option { background: #1a1a1a; color: #fff; }
       <h2 class="heading-lg">Ready to be part of <span class="coral">Meg City</span>?</h2>
       <p>Apply to play, complete registration, and we'll see you on the court.</p>
       <div class="btn-group" style="justify-content:center;">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAlVcim4un0bBk2TjTsjNrc9P0H33xDjdXCRPudQ8qkC6YwA/viewform?usp=header" target="_blank" class="btn btn-primary">Apply to Play →</a>
-        <button class="btn btn-outline" onclick="window.open('https://megcityfutsal.sportngin.com/register/form/294981733','_blank')">Register</button>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAlVcim4un0bBk2TjTsjNrc9P0H33xDjdXCRPudQ8qkC6YwA/viewform?usp=header" target="_blank" rel="noopener" class="btn btn-primary">Apply to Play →</a>
+        <button class="btn btn-outline" onclick="window.open('https://megcityfutsal.sportngin.com/register/form/294981733','_blank','noopener')">Register</button>
       </div>
     </div>
   </div>
@@ -2014,7 +2017,7 @@ select option { background: #1a1a1a; color: #fff; }
       <h2 class="heading-lg">Ready to train with <span class="coral">our staff</span>?</h2>
       <p>Apply to play and complete registration. New to futsal? Start with our New Players page.</p>
       <div class="btn-group" style="justify-content:center;">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAlVcim4un0bBk2TjTsjNrc9P0H33xDjdXCRPudQ8qkC6YwA/viewform?usp=header" target="_blank" class="btn btn-primary">Apply to Play →</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAlVcim4un0bBk2TjTsjNrc9P0H33xDjdXCRPudQ8qkC6YwA/viewform?usp=header" target="_blank" rel="noopener" class="btn btn-primary">Apply to Play →</a>
         <button class="btn btn-outline" onclick="showPage('new-players')">New Players</button>
       </div>
     </div>
@@ -2060,16 +2063,16 @@ select option { background: #1a1a1a; color: #fff; }
             <div>
               <div class="meta-lbl">Follow Us</div>
               <div class="meta-val" style="font-size:14px; display:flex; gap:14px; flex-wrap:wrap;">
-                <a href="https://www.instagram.com/megcityfutsal/" target="_blank" style="color:var(--coral);">Instagram</a>
-                <a href="http://www.facebook.com/MegCityFutsal" target="_blank" style="color:var(--coral);">Facebook</a>
-                <a href="https://twitter.com/megcityfutsal" target="_blank" style="color:var(--coral);">X / Twitter</a>
+                <a href="https://www.instagram.com/megcityfutsal/" target="_blank" rel="noopener" style="color:var(--coral);">Instagram</a>
+                <a href="http://www.facebook.com/MegCityFutsal" target="_blank" rel="noopener" style="color:var(--coral);">Facebook</a>
+                <a href="https://twitter.com/megcityfutsal" target="_blank" rel="noopener" style="color:var(--coral);">X / Twitter</a>
               </div>
             </div>
           </div>
           <div class="contact-row" style="flex-direction:column; align-items:flex-start; gap:16px;">
             <div style="display:flex; gap:14px; flex-wrap:wrap;">
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAlVcim4un0bBk2TjTsjNrc9P0H33xDjdXCRPudQ8qkC6YwA/viewform?usp=header" target="_blank" class="btn btn-primary btn-sm">Apply to Play →</a>
-              <button class="btn btn-outline btn-sm" onclick="window.open('https://megcityfutsal.sportngin.com/register/form/294981733','_blank')">Register</button>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAlVcim4un0bBk2TjTsjNrc9P0H33xDjdXCRPudQ8qkC6YwA/viewform?usp=header" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Apply to Play →</a>
+              <button class="btn btn-outline btn-sm" onclick="window.open('https://megcityfutsal.sportngin.com/register/form/294981733','_blank','noopener')">Register</button>
             </div>
           </div>
         </div>
@@ -2115,6 +2118,10 @@ select option { background: #1a1a1a; color: #fff; }
             <div style="font-size:13px; color:var(--txt-mute);">Update season info and enrollment status</div>
           </div>
           <button class="btn btn-dark btn-sm" style="margin-left:auto;" onclick="adminLogout()">Sign Out</button>
+        </div>
+
+        <div style="background:rgba(255,180,0,0.08); border:1px solid rgba(255,180,0,0.35); border-radius:9px; padding:14px 18px; margin-bottom:28px; font-size:13px; line-height:1.6; color:#ffb400;">
+          <strong>Heads up:</strong> changes made here are saved only in this browser — they are not published to the live site for visitors. To update the site for everyone, contact Aaron to make the change and redeploy.
         </div>
 
         <!-- JAN–MAY -->
@@ -2201,8 +2208,8 @@ select option { background: #1a1a1a; color: #fff; }
         <ul>
           <li><button onclick="showPage('home')">Home</button></li>
           <li><button onclick="showPage('new-players')">New Players</button></li>
-          <li><button onclick="showPage('jan-may')">Jan–May Season</button></li>
           <li><button onclick="showPage('aug-nov')">Aug–Nov Season</button></li>
+          <li><button onclick="showPage('jan-may')">Jan–May Season</button></li>
           <li><button onclick="showPage('off-season')">Off-Season</button></li>
           <li><button onclick="showPage('about')">About</button></li>
           <li><button onclick="showPage('staff')">Staff</button></li>
@@ -2212,10 +2219,10 @@ select option { background: #1a1a1a; color: #fff; }
       <div class="footer-col">
         <h4>Get Started</h4>
         <ul>
-          <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeAlVcim4un0bBk2TjTsjNrc9P0H33xDjdXCRPudQ8qkC6YwA/viewform?usp=header" target="_blank">Apply to Play</a></li>
-          <li><a href="https://megcityfutsal.sportngin.com/register/form/294981733" target="_blank">Register &amp; Waivers</a></li>
+          <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeAlVcim4un0bBk2TjTsjNrc9P0H33xDjdXCRPudQ8qkC6YwA/viewform?usp=header" target="_blank" rel="noopener">Apply to Play</a></li>
+          <li><a href="https://megcityfutsal.sportngin.com/register/form/294981733" target="_blank" rel="noopener">Register &amp; Waivers</a></li>
           <li><button onclick="showPage('new-players')">New to Futsal?</button></li>
-          <li><a href="https://stimulusathletic.com/collections/meg-city-futsal" target="_blank">Shop Gear</a></li>
+          <li><a href="https://stimulusathletic.com/collections/meg-city-futsal" target="_blank" rel="noopener">Shop Gear</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -2267,11 +2274,20 @@ const defaults = {
 };
 
 // ── Load stored data ──
+// Merges stored values over defaults so new defaults shipped in code
+// still apply when localStorage holds an older snapshot, and a
+// malformed/partial snapshot can't crash applyData.
 function loadData() {
   try {
     const raw = localStorage.getItem(SK);
-    return raw ? JSON.parse(raw) : defaults;
-  } catch(e) { return defaults; }
+    const parsed = raw ? JSON.parse(raw) : null;
+    return {
+      jan: { ...defaults.jan, ...(parsed && parsed.jan ? parsed.jan : {}) },
+      aug: { ...defaults.aug, ...(parsed && parsed.aug ? parsed.aug : {}) }
+    };
+  } catch(e) {
+    return { jan: { ...defaults.jan }, aug: { ...defaults.aug } };
+  }
 }
 
 // ── Save data ──
@@ -2311,7 +2327,11 @@ function applyData(d) {
   } else {
     document.getElementById('home-eyebrow-text').textContent = 'Year-round youth futsal program';
   }
-  document.getElementById('home-jan-badge').outerHTML = '<div class="status-badge ' + (j.status==='open'?'status-open':j.status==='coming'?'status-coming':'status-closed') + '" id="home-jan-badge">' + (j.status==='open'?'● Open':j.status==='coming'?'● Coming Soon':'● Closed') + '</div>';
+  const janBadgeEl = document.getElementById('home-jan-badge');
+  if (janBadgeEl) {
+    janBadgeEl.className = 'status-badge ' + (j.status==='open'?'status-open':j.status==='coming'?'status-coming':'status-closed');
+    janBadgeEl.innerHTML = j.status==='open'?'● Open':j.status==='coming'?'● Coming Soon':'● Closed';
+  }
   document.getElementById('jan-eyebrow-text').textContent = eyebrowText('jan', j.status);
   document.getElementById('jan-status-text').textContent = statusText(j.status);
   document.getElementById('jan-schedule-display').textContent = j.schedule || 'Contact us for current schedule details';
