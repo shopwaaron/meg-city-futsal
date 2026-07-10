@@ -2034,8 +2034,8 @@ select option { background: #1a1a1a; color: #fff; }
     <div class="container">
       <div class="eyebrow"><span class="dot"></span> Get in touch</div>
       <h1 class="display">Got a <span class="coral">question</span>?<br>We're here.</h1>
-      <p class="lead mt-24" style="max-width:620px;">Call or email us with questions about programs, registration, or schedules. You can also find registration info and waivers through the links below.</p>
-      <div class="mt-48">
+      <p class="lead mt-24" style="max-width:620px;">Call or email us with questions about programs, registration, or schedules — or send a message below and a representative will reach out to you soon.</p>
+      <div class="grid-2 mt-48" style="align-items:start; gap:48px;">
         <div class="contact-grid">
           <div class="contact-row">
             <div class="contact-icon">P</div>
@@ -2074,6 +2074,33 @@ select option { background: #1a1a1a; color: #fff; }
               <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAlVcim4un0bBk2TjTsjNrc9P0H33xDjdXCRPudQ8qkC6YwA/viewform?usp=header" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Apply to Play →</a>
               <button class="btn btn-outline btn-sm" onclick="window.open('https://megcityfutsal.sportngin.com/register/form/294981733','_blank','noopener')">Register</button>
             </div>
+          </div>
+        </div>
+
+        <div class="form-card">
+          <div id="contactFormView">
+            <h3 class="heading-md" style="margin-bottom:6px;">Send us a message</h3>
+            <p class="body" style="margin-bottom:24px; font-size:14px;">Tell us what you're looking for and a representative will reach out to you soon.</p>
+            <div class="form-row">
+              <label>Name</label>
+              <input type="text" id="contactName" placeholder="Full name">
+            </div>
+            <div class="form-row">
+              <label>Phone or email</label>
+              <input type="text" id="contactReach" placeholder="How should we reach you?">
+            </div>
+            <div class="form-row">
+              <label>Message</label>
+              <textarea id="contactMessage" placeholder="What are you looking for?"></textarea>
+            </div>
+            <div class="admin-error" id="contactError">Please fill in your name, phone/email, and message.</div>
+            <button class="btn btn-primary" style="margin-top:8px; width:100%; justify-content:center;" onclick="submitContactForm()">Send Message →</button>
+            <p style="font-size:12px; color:var(--txt-faint); margin-top:12px; text-align:center;">This opens your email app with the message pre-filled — you'll need to hit send there to reach us.</p>
+          </div>
+          <div id="contactSuccessView" style="display:none; text-align:center; padding:24px 0;">
+            <div style="font-size:32px; margin-bottom:12px;">✓</div>
+            <h3 class="heading-md" style="margin-bottom:8px;">Message sent</h3>
+            <p class="body" style="font-size:14px;">Thanks for reaching out — a representative will get back to you soon.</p>
           </div>
         </div>
       </div>
@@ -2454,6 +2481,33 @@ function showToast() {
   const t = document.getElementById('adminToast');
   t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+// ── Contact form ──
+// No backend — opens the visitor's email app with the message pre-filled
+// via a mailto: link. They still have to hit send in their own app.
+function submitContactForm() {
+  const name = document.getElementById('contactName').value.trim();
+  const reach = document.getElementById('contactReach').value.trim();
+  const message = document.getElementById('contactMessage').value.trim();
+  const err = document.getElementById('contactError');
+
+  if (!name || !reach || !message) {
+    err.classList.add('show');
+    return;
+  }
+  err.classList.remove('show');
+
+  const subject = 'New contact form message from ' + name;
+  const body = 'Name: ' + name + '\nPhone/Email: ' + reach + '\n\nMessage:\n' + message;
+  const mailtoUrl = 'mailto:info@megcityfutsal.com'
+    + '?subject=' + encodeURIComponent(subject)
+    + '&body=' + encodeURIComponent(body);
+
+  window.location.href = mailtoUrl;
+
+  document.getElementById('contactFormView').style.display = 'none';
+  document.getElementById('contactSuccessView').style.display = 'block';
 }
 
 // ── Secret admin access: click logo 5 times ──
