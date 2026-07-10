@@ -2318,9 +2318,12 @@ function applyData(d) {
   }
   document.getElementById('jan-eyebrow-text').textContent = eyebrowText('jan', j.status);
   document.getElementById('jan-status-text').textContent = statusText(j.status);
-  document.getElementById('jan-schedule-display').textContent = j.schedule || 'Contact us for current schedule details';
-  document.getElementById('jan-boys-loc').textContent = j.boys || 'Rancho Cucamonga';
-  document.getElementById('jan-girls-loc').textContent = j.girls || 'Rancho Cucamonga';
+  const janScheduleEl = document.getElementById('jan-schedule-display');
+  if (janScheduleEl) janScheduleEl.textContent = j.schedule || 'Contact us for current schedule details';
+  const janBoysEl = document.getElementById('jan-boys-loc');
+  if (janBoysEl) janBoysEl.textContent = j.boys || 'Rancho Cucamonga';
+  const janGirlsEl = document.getElementById('jan-girls-loc');
+  if (janGirlsEl) janGirlsEl.textContent = j.girls || 'Rancho Cucamonga';
 
   // Aug–Nov
   const a = d.aug;
@@ -2331,9 +2334,12 @@ function applyData(d) {
   }
   document.getElementById('aug-eyebrow-text').textContent = eyebrowText('aug', a.status);
   document.getElementById('aug-status-text').textContent = statusText(a.status);
-  document.getElementById('aug-schedule-display').textContent = a.schedule || 'Contact us for current schedule details';
-  document.getElementById('aug-boys-loc').textContent = a.boys || 'Rancho Cucamonga';
-  document.getElementById('aug-girls-loc').textContent = a.girls || 'Rancho Cucamonga';
+  const augScheduleEl = document.getElementById('aug-schedule-display');
+  if (augScheduleEl) augScheduleEl.textContent = a.schedule || 'Contact us for current schedule details';
+  const augBoysEl = document.getElementById('aug-boys-loc');
+  if (augBoysEl) augBoysEl.textContent = a.boys || 'Rancho Cucamonga';
+  const augGirlsEl = document.getElementById('aug-girls-loc');
+  if (augGirlsEl) augGirlsEl.textContent = a.girls || 'Rancho Cucamonga';
 
   // Home tile eyebrow - show active season
   const activeSeason = a.status === 'open' ? 'Aug–Nov' : (j.status === 'open' ? 'Jan–May' : 'Aug–Nov');
