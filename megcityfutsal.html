@@ -1303,7 +1303,7 @@ select option { background: #1a1a1a; color: #fff; }
           <div class="bg-num">02</div>
           <h3>Jan–May</h3>
           <div class="season-status">
-            <div class="status-badge status-open" id="home-jan-badge">● Enrolling Now</div>
+            <div class="status-badge status-open" id="home-jan-badge">● Accepting Sign Ups</div>
             <span class="caption">Spring Season</span>
           </div>
           <p>Spring training through the heart of the competitive calendar. Weekly sessions, small-sided games, local + regional events.</p>
@@ -1516,7 +1516,7 @@ select option { background: #1a1a1a; color: #fff; }
         </div>
         <div>
           <span class="lbl coral-label">Status</span>
-          <div class="val" id="jan-status-text">Enrolling Now</div>
+          <div class="val" id="jan-status-text">Accepting Sign Ups</div>
         </div>
       </div>
     </div>
@@ -2295,12 +2295,12 @@ function saveData(d) {
 
 // ── Status helpers ──
 function statusBadge(s) {
-  if (s === 'open')   return '<div class="status-badge status-open">● Enrolling Now</div>';
+  if (s === 'open')   return '<div class="status-badge status-open">● Accepting Sign Ups</div>';
   if (s === 'coming') return '<div class="status-badge status-coming">● Coming Soon</div>';
   return '<div class="status-badge status-closed">● Closed</div>';
 }
 function statusText(s) {
-  if (s === 'open')   return 'Enrolling Now';
+  if (s === 'open')   return 'Accepting Sign Ups';
   if (s === 'coming') return 'Coming Soon';
   return 'Closed';
 }
@@ -2328,7 +2328,7 @@ function applyData(d) {
   const janBadgeEl = document.getElementById('home-jan-badge');
   if (janBadgeEl) {
     janBadgeEl.className = 'status-badge ' + (j.status==='open'?'status-open':j.status==='coming'?'status-coming':'status-closed');
-    janBadgeEl.innerHTML = j.status==='open'?'● Enrolling Now':j.status==='coming'?'● Coming Soon':'● Closed';
+    janBadgeEl.innerHTML = j.status==='open'?'● Accepting Sign Ups':j.status==='coming'?'● Coming Soon':'● Closed';
   }
   document.getElementById('jan-eyebrow-text').textContent = eyebrowText('jan', j.status);
   document.getElementById('jan-status-text').textContent = statusText(j.status);
@@ -2341,7 +2341,7 @@ function applyData(d) {
   const augBadgeEl = document.getElementById('home-aug-badge');
   if (augBadgeEl) {
     augBadgeEl.className = 'status-badge ' + (a.status==='open'?'status-open':a.status==='coming'?'status-coming':'status-closed');
-    augBadgeEl.innerHTML = a.status==='open'?'● Enrolling Now':a.status==='coming'?'● Coming Soon':'● Closed';
+    augBadgeEl.innerHTML = a.status==='open'?'● Accepting Sign Ups':a.status==='coming'?'● Coming Soon':'● Closed';
   }
   document.getElementById('aug-eyebrow-text').textContent = eyebrowText('aug', a.status);
   document.getElementById('aug-status-text').textContent = statusText(a.status);
