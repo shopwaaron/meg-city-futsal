@@ -11,12 +11,12 @@
 <meta property="og:url" content="https://megcityfutsal.com/">
 <meta property="og:title" content="Meg City Futsal | Youth Futsal in Rancho Cucamonga & the Inland Empire">
 <meta property="og:description" content="Year-round youth futsal in Rancho Cucamonga and the Inland Empire. Development and competitive programs that build technique and speed of play. Ages 7–12.">
-<meta property="og:image" content="https://megcityfutsal.com/og-image.jpg">
+<meta property="og:image" content="og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@megcityfutsal">
 <meta name="twitter:title" content="Meg City Futsal | Youth Futsal in Rancho Cucamonga & the Inland Empire">
 <meta name="twitter:description" content="Year-round youth futsal in Rancho Cucamonga and the Inland Empire. Development and competitive programs that build technique and speed of play. Ages 7–12.">
-<meta name="twitter:image" content="https://megcityfutsal.com/og-image.jpg">
+<meta name="twitter:image" content="og-image.jpg">
 
 <!-- Favicon -->
 <link rel="icon" type="image/png" href="favicon.png">
@@ -914,7 +914,6 @@ ul, ol { list-style: none; }
   gap: 10px;
 }
 .admin-section h3 span { color: var(--coral); }
-.admin-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .admin-toast {
   position: fixed;
   bottom: 28px;
@@ -993,7 +992,6 @@ select option { background: #1a1a1a; color: #fff; }
   .event-row .tag { text-align: left; }
   .why-cards { grid-template-columns: 1fr 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
-  .admin-grid-2 { grid-template-columns: 1fr; }
   .display { font-size: clamp(40px, 10vw, 64px); }
   .section { padding: 56px 0; }
 }
@@ -1130,17 +1128,6 @@ select option { background: #1a1a1a; color: #fff; }
 ============================================================ */
 .ig-section { padding: 80px 0; border-top: 1px solid var(--bdr); }
 .ig-head { display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
-.ig-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin-top: 32px; }
-.ig-tile {
-  aspect-ratio: 1 / 1; background: var(--bg3); border: 1px solid var(--bdr);
-  border-radius: 10px; display: flex; align-items: center; justify-content: center;
-  color: var(--coral); text-decoration: none; transition: border-color .2s, transform .2s;
-  overflow: hidden; position: relative;
-}
-.ig-tile:hover { border-color: var(--coral); transform: translateY(-2px); }
-.ig-tile img { width: 100%; height: 100%; object-fit: cover; display: block; }
-@media (max-width: 900px) { .ig-grid { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 480px) { .ig-grid { grid-template-columns: repeat(2, 1fr); } }
 </style>
 </head>
 <body>
@@ -1152,7 +1139,8 @@ select option { background: #1a1a1a; color: #fff; }
   <div class="container">
     <div class="nav-inner">
       <div class="nav-logo" onclick="showPage('home')" role="button" tabindex="0" aria-label="Meg City Futsal — go to home" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showPage('home');}">
-        <img src="logo-lockup-white.png" alt="Meg City Futsal" style="height:46px; width:auto;">
+        <img src="logo-mark-white.png" alt="" style="height:38px; width:auto;">
+        Meg City Futsal
       </div>
       <div class="nav-links">
         <button class="nav-link active" onclick="showPage('home')" id="nav-home">Home</button>
@@ -1194,7 +1182,7 @@ select option { background: #1a1a1a; color: #fff; }
         <div>
           <div class="eyebrow" id="home-eyebrow">
             <span class="dot"></span>
-            <span id="home-eyebrow-text">Now enrolling — Jan–May Season</span>
+            <span id="home-eyebrow-text">Now enrolling — Aug–Nov Season</span>
           </div>
           <h1 class="display">Train sharper.<br>Think <span class="coral">faster</span>.<br>Play more.</h1>
           <p class="lead mt-24">Year-round youth futsal in Rancho Cucamonga and the Inland Empire. Build technique, confidence, and game intelligence in the fastest version of the beautiful game. Ages 7–12.</p>
@@ -1289,7 +1277,7 @@ select option { background: #1a1a1a; color: #fff; }
           <div class="bg-num">01</div>
           <h3>Aug–Nov</h3>
           <div class="season-status">
-            <div class="status-badge status-coming" id="home-aug-badge">● Coming Soon</div>
+            <div class="status-badge status-open" id="home-aug-badge">● Accepting Sign Ups</div>
             <span class="caption">Fall Season</span>
           </div>
           <p>Fall arc preparing players for winter regional events. Weekly training and competitive opportunities for those ready.</p>
@@ -1303,7 +1291,7 @@ select option { background: #1a1a1a; color: #fff; }
           <div class="bg-num">02</div>
           <h3>Jan–May</h3>
           <div class="season-status">
-            <div class="status-badge status-open" id="home-jan-badge">● Accepting Sign Ups</div>
+            <div class="status-badge status-coming" id="home-jan-badge">● Coming Soon</div>
             <span class="caption">Spring Season</span>
           </div>
           <p>Spring training through the heart of the competitive calendar. Weekly sessions, small-sided games, local + regional events.</p>
@@ -1493,7 +1481,7 @@ select option { background: #1a1a1a; color: #fff; }
     <div class="container">
       <div class="eyebrow">
         <span class="dot"></span>
-        <span id="jan-eyebrow-text">Spring Season · Now Enrolling</span>
+        <span id="jan-eyebrow-text">Spring Season · Coming Soon</span>
       </div>
       <h1 class="display">The <span class="coral">Jan–May</span><br>Season.</h1>
       <p class="lead mt-24" style="max-width:660px;">The heart of the spring competitive calendar. Weekly training, small-sided games, and opportunities to compete in local and regional events. Players ages 7–12, boys and girls.</p>
@@ -1516,7 +1504,7 @@ select option { background: #1a1a1a; color: #fff; }
         </div>
         <div>
           <span class="lbl coral-label">Status</span>
-          <div class="val" id="jan-status-text">Accepting Sign Ups</div>
+          <div class="val" id="jan-status-text">Coming Soon</div>
         </div>
       </div>
     </div>
@@ -1636,7 +1624,7 @@ select option { background: #1a1a1a; color: #fff; }
     <div class="container">
       <div class="eyebrow">
         <span class="dot"></span>
-        <span id="aug-eyebrow-text">Fall Season</span>
+        <span id="aug-eyebrow-text">Fall Season · Now Enrolling</span>
       </div>
       <h1 class="display">The <span class="coral">Aug–Nov</span><br>Season.</h1>
       <p class="lead mt-24" style="max-width:660px;">The fall arc of our year-round program — when players sharpen their game heading into winter regional events. Weekly training, small-sided games, and competitive opportunities for those ready.</p>
@@ -1659,7 +1647,7 @@ select option { background: #1a1a1a; color: #fff; }
         </div>
         <div>
           <span class="lbl coral-label">Status</span>
-          <div class="val" id="aug-status-text">Coming Soon</div>
+          <div class="val" id="aug-status-text">Accepting Sign Ups</div>
         </div>
       </div>
     </div>
@@ -2124,20 +2112,6 @@ select option { background: #1a1a1a; color: #fff; }
               <option value="closed">Closed</option>
             </select>
           </div>
-          <div class="form-row">
-            <label>Training Schedule</label>
-            <input type="text" id="admin-jan-schedule" placeholder="e.g. Fridays 5PM, 6PM, 7PM · Sundays 4PM, 5PM">
-          </div>
-          <div class="admin-grid-2">
-            <div class="form-row">
-              <label>Boys Training Location</label>
-              <input type="text" id="admin-jan-boys" placeholder="e.g. Rancho Cucamonga">
-            </div>
-            <div class="form-row">
-              <label>Girls Training Location</label>
-              <input type="text" id="admin-jan-girls" placeholder="e.g. Rancho Cucamonga">
-            </div>
-          </div>
         </div>
 
         <!-- AUG–NOV -->
@@ -2150,20 +2124,6 @@ select option { background: #1a1a1a; color: #fff; }
               <option value="coming">Coming Soon</option>
               <option value="closed">Closed</option>
             </select>
-          </div>
-          <div class="form-row">
-            <label>Training Schedule</label>
-            <input type="text" id="admin-aug-schedule" placeholder="e.g. Sundays 4PM, 5PM, 6PM">
-          </div>
-          <div class="admin-grid-2">
-            <div class="form-row">
-              <label>Boys Training Location</label>
-              <input type="text" id="admin-aug-boys" placeholder="e.g. Rancho Cucamonga">
-            </div>
-            <div class="form-row">
-              <label>Girls Training Location</label>
-              <input type="text" id="admin-aug-girls" placeholder="e.g. Rancho Cucamonga">
-            </div>
           </div>
         </div>
 
@@ -2248,18 +2208,8 @@ const SK = 'mcf_admin_data';
 
 // ── Default data ──
 const defaults = {
-  jan: {
-    status: 'coming',
-    schedule: 'Fridays 5PM · 6PM · 7PM (by age group)',
-    boys: 'Rancho Cucamonga',
-    girls: 'Rancho Cucamonga'
-  },
-  aug: {
-    status: 'open',
-    schedule: 'Sundays 4PM · 5PM · 6PM (by age group)',
-    boys: 'Rancho Cucamonga',
-    girls: 'Rancho Cucamonga'
-  }
+  jan: { status: 'coming' },
+  aug: { status: 'open' }
 };
 
 // ── Load stored data ──
@@ -2323,12 +2273,6 @@ function applyData(d) {
   }
   document.getElementById('jan-eyebrow-text').textContent = eyebrowText('jan', j.status);
   document.getElementById('jan-status-text').textContent = statusText(j.status);
-  const janScheduleEl = document.getElementById('jan-schedule-display');
-  if (janScheduleEl) janScheduleEl.textContent = j.schedule || 'Contact us for current schedule details';
-  const janBoysEl = document.getElementById('jan-boys-loc');
-  if (janBoysEl) janBoysEl.textContent = j.boys || 'Rancho Cucamonga';
-  const janGirlsEl = document.getElementById('jan-girls-loc');
-  if (janGirlsEl) janGirlsEl.textContent = j.girls || 'Rancho Cucamonga';
 
   // Aug–Nov
   const a = d.aug;
@@ -2339,12 +2283,6 @@ function applyData(d) {
   }
   document.getElementById('aug-eyebrow-text').textContent = eyebrowText('aug', a.status);
   document.getElementById('aug-status-text').textContent = statusText(a.status);
-  const augScheduleEl = document.getElementById('aug-schedule-display');
-  if (augScheduleEl) augScheduleEl.textContent = a.schedule || 'Contact us for current schedule details';
-  const augBoysEl = document.getElementById('aug-boys-loc');
-  if (augBoysEl) augBoysEl.textContent = a.boys || 'Rancho Cucamonga';
-  const augGirlsEl = document.getElementById('aug-girls-loc');
-  if (augGirlsEl) augGirlsEl.textContent = a.girls || 'Rancho Cucamonga';
 
   // Home tile eyebrow - show active season
   const activeSeason = a.status === 'open' ? 'Aug–Nov' : (j.status === 'open' ? 'Jan–May' : 'Aug–Nov');
@@ -2414,30 +2352,14 @@ function adminLogout() {
 function populateAdminFields() {
   const d = loadData();
   document.getElementById('admin-jan-status').value = d.jan.status;
-  document.getElementById('admin-jan-schedule').value = d.jan.schedule;
-  document.getElementById('admin-jan-boys').value = d.jan.boys;
-  document.getElementById('admin-jan-girls').value = d.jan.girls;
   document.getElementById('admin-aug-status').value = d.aug.status;
-  document.getElementById('admin-aug-schedule').value = d.aug.schedule;
-  document.getElementById('admin-aug-boys').value = d.aug.boys;
-  document.getElementById('admin-aug-girls').value = d.aug.girls;
 }
 
 // ── Save admin changes ──
 function saveAdminChanges() {
   const d = {
-    jan: {
-      status:   document.getElementById('admin-jan-status').value,
-      schedule: document.getElementById('admin-jan-schedule').value,
-      boys:     document.getElementById('admin-jan-boys').value,
-      girls:    document.getElementById('admin-jan-girls').value
-    },
-    aug: {
-      status:   document.getElementById('admin-aug-status').value,
-      schedule: document.getElementById('admin-aug-schedule').value,
-      boys:     document.getElementById('admin-aug-boys').value,
-      girls:    document.getElementById('admin-aug-girls').value
-    }
+    jan: { status: document.getElementById('admin-jan-status').value },
+    aug: { status: document.getElementById('admin-aug-status').value }
   };
   saveData(d);
   applyData(d);
