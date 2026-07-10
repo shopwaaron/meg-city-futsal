@@ -586,7 +586,7 @@ ul, ol { list-style: none; }
   letter-spacing: 0.08em;
 }
 .status-open { background: rgba(0,200,100,0.12); color: #00c864; border: 1px solid rgba(0,200,100,0.3); }
-.status-coming { background: rgba(255,180,0,0.12); color: #ffb400; border: 1px solid rgba(255,180,0,0.3); }
+.status-coming { background: rgba(0,200,100,0.12); color: #00c864; border: 1px solid rgba(0,200,100,0.3); }
 .status-closed { background: rgba(255,90,95,0.12); color: var(--coral); border: 1px solid var(--coral-bdr); }
 
 /* ============================================================
@@ -1285,28 +1285,28 @@ select option { background: #1a1a1a; color: #fff; }
       <h2 class="heading-lg mt-12">Pick the season that<br>works for your player.</h2>
       <p class="lead mt-16">Players join us by season. Each one includes consistent weekly training, small-sided games, and the chance to compete locally and regionally.</p>
       <div class="seasons-grid">
-        <div class="season-card" onclick="showPage('jan-may')">
-          <div class="bg-num">01</div>
-          <h3>Jan–May</h3>
-          <div class="season-status">
-            <div class="status-badge status-open" id="home-jan-badge">● Open</div>
-            <span class="caption">Spring Season</span>
-          </div>
-          <p>Spring training through the heart of the competitive calendar. Weekly sessions, small-sided games, local + regional events.</p>
-          <div class="season-meta">
-            <span>Ages 7–12</span>
-            <span>From $100/mo</span>
-            <span>View details →</span>
-          </div>
-        </div>
         <div class="season-card" onclick="showPage('aug-nov')">
-          <div class="bg-num">02</div>
+          <div class="bg-num">01</div>
           <h3>Aug–Nov</h3>
           <div class="season-status">
             <div class="status-badge status-coming" id="home-aug-badge">● Coming Soon</div>
             <span class="caption">Fall Season</span>
           </div>
           <p>Fall arc preparing players for winter regional tournaments. Weekly training and competitive opportunities for those ready.</p>
+          <div class="season-meta">
+            <span>Ages 7–12</span>
+            <span>From $100/mo</span>
+            <span>View details →</span>
+          </div>
+        </div>
+        <div class="season-card" onclick="showPage('jan-may')">
+          <div class="bg-num">02</div>
+          <h3>Jan–May</h3>
+          <div class="season-status">
+            <div class="status-badge status-open" id="home-jan-badge">● Open</div>
+            <span class="caption">Spring Season</span>
+          </div>
+          <p>Spring training through the heart of the competitive calendar. Weekly sessions, small-sided games, local + regional events.</p>
           <div class="season-meta">
             <span>Ages 7–12</span>
             <span>From $100/mo</span>
