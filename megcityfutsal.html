@@ -1319,12 +1319,9 @@ select option { background: #1a1a1a; color: #fff; }
 
   <!-- ============================================================
        INSTAGRAM FEED
-       Currently a manual snapshot of the 6 most recent posts from
-       @megcityfutsal (images stored in /ig). This is NOT a live feed —
-       photos need to be swapped in by hand to stay current.
-       To make this auto-update, connect a free embed service (Behold.so,
-       LightWidget, or SnapWidget) to the Instagram account and replace
-       the .ig-tile <img> elements below with that service's embed code.
+       Live feed via LightWidget, connected to @megcityfutsal. Updates
+       automatically as new posts go up — no manual photo swaps needed.
+       Manage the widget (layout, photo count) at lightwidget.com.
   ============================================================ -->
   <div class="ig-section">
     <div class="container">
@@ -1336,13 +1333,9 @@ select option { background: #1a1a1a; color: #fff; }
         </div>
         <a href="https://www.instagram.com/megcityfutsal/" target="_blank" rel="noopener" class="btn btn-primary">Follow on Instagram →</a>
       </div>
-      <div class="ig-grid">
-        <a href="https://www.instagram.com/megcityfutsal/p/DZ_ZJ9GNS0r/" target="_blank" rel="noopener" class="ig-tile" aria-label="View post on Instagram"><img src="ig/post-1.jpg" alt="Meg City Futsal Instagram post" loading="lazy"></a>
-        <a href="https://www.instagram.com/megcityfutsal/p/DZ5mVs6AcHB/" target="_blank" rel="noopener" class="ig-tile" aria-label="View post on Instagram"><img src="ig/post-2.jpg" alt="Meg City Futsal Instagram post" loading="lazy"></a>
-        <a href="https://www.instagram.com/megcityfutsal/p/DYz-BxitCAa/" target="_blank" rel="noopener" class="ig-tile" aria-label="View post on Instagram"><img src="ig/post-3.jpg" alt="Meg City Futsal Instagram post" loading="lazy"></a>
-        <a href="https://www.instagram.com/megcityfutsal/p/DX5F7vQAd1E/" target="_blank" rel="noopener" class="ig-tile" aria-label="View post on Instagram"><img src="ig/post-4.jpg" alt="Meg City Futsal Instagram post" loading="lazy"></a>
-        <a href="https://www.instagram.com/megcityfutsal/p/DXkr-chAYNM/" target="_blank" rel="noopener" class="ig-tile" aria-label="View post on Instagram"><img src="ig/post-5.jpg" alt="Meg City Futsal Instagram post" loading="lazy"></a>
-        <a href="https://www.instagram.com/megcityfutsal/p/DXkSL5qAQo5/" target="_blank" rel="noopener" class="ig-tile" aria-label="View post on Instagram"><img src="ig/post-6.jpg" alt="Meg City Futsal Instagram post" loading="lazy"></a>
+      <div class="ig-grid" style="display:block; margin-top:32px;">
+        <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
+        <iframe src="//lightwidget.com/widgets/1c678e146f575938aac200c6d6c85c42.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;" title="Meg City Futsal Instagram feed"></iframe>
       </div>
     </div>
   </div>
