@@ -1,5 +1,4 @@
 {
-  "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
     { "source": "/home-.html", "destination": "/", "permanent": true },
@@ -11,5 +10,15 @@
     { "source": "/contact.html", "destination": "/contact", "permanent": true },
     { "source": "/register-.html", "destination": "https://megcityfutsal.sportngin.com/survey/disabled/1107732", "permanent": true },
     { "source": "/megcityfutsal.html", "destination": "/", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/new-players", "destination": "/new-players.html" },
+    { "source": "/aug-nov", "destination": "/aug-nov.html" },
+    { "source": "/jan-may", "destination": "/jan-may.html" },
+    { "source": "/off-season", "destination": "/off-season.html" },
+    { "source": "/about", "destination": "/about.html" },
+    { "source": "/staff", "destination": "/staff.html" },
+    { "source": "/contact", "destination": "/contact.html" },
+    { "source": "/admin", "destination": "/admin.html" }
   ]
 }
