@@ -728,8 +728,9 @@ ul, ol { list-style: none; }
   transition: all 0.2s;
   text-decoration: none;
 }
-.social-btn:hover { border-color: var(--coral); color: var(--coral); }
+.social-btn:hover { border-color: var(--coral); transform: translateY(-2px); }
 .social-btn:focus-visible { outline: 2px solid var(--coral); outline-offset: 3px; }
+.social-btn img { width: 18px; height: 18px; object-fit: contain; }
 .footer-col h4 {
   font-family: var(--mono);
   font-size: 11px;
