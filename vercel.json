@@ -1,15 +1,15 @@
 {
-  "rewrites": [
-    { "source": "/", "destination": "/megcityfutsal.html" }
-  ],
+  "cleanUrls": true,
+  "trailingSlash": false,
   "redirects": [
     { "source": "/home-.html", "destination": "/", "permanent": true },
-    { "source": "/programs.html", "destination": "/", "permanent": true },
-    { "source": "/futsalers.html", "destination": "/", "permanent": true },
-    { "source": "/meg-city-select.html", "destination": "/", "permanent": true },
-    { "source": "/about.html", "destination": "/", "permanent": true },
-    { "source": "/staff.html", "destination": "/", "permanent": true },
-    { "source": "/contact.html", "destination": "/", "permanent": true },
-    { "source": "/register-.html", "destination": "https://megcityfutsal.sportngin.com/register/form/294981733", "permanent": true }
+    { "source": "/programs.html", "destination": "/new-players", "permanent": true },
+    { "source": "/futsalers.html", "destination": "/new-players", "permanent": true },
+    { "source": "/meg-city-select.html", "destination": "/new-players", "permanent": true },
+    { "source": "/about.html", "destination": "/about", "permanent": true },
+    { "source": "/staff.html", "destination": "/staff", "permanent": true },
+    { "source": "/contact.html", "destination": "/contact", "permanent": true },
+    { "source": "/register-.html", "destination": "https://megcityfutsal.sportngin.com/survey/disabled/1107732", "permanent": true },
+    { "source": "/megcityfutsal.html", "destination": "/", "permanent": true }
   ]
 }
