@@ -8,7 +8,7 @@
     { "source": "/about.html", "destination": "/about", "permanent": true },
     { "source": "/staff.html", "destination": "/staff", "permanent": true },
     { "source": "/contact.html", "destination": "/contact", "permanent": true },
-    { "source": "/register-.html", "destination": "https://megcityfutsal.sportngin.com/survey/disabled/1107732", "permanent": true },
+    { "source": "/register-.html", "destination": "https://megcityfutsal.sportngin.com/register/form/218301052", "permanent": true },
     { "source": "/megcityfutsal.html", "destination": "/", "permanent": true }
   ],
   "rewrites": [
